@@ -7,6 +7,8 @@ namespace RPS
 {
     class RPS3Rule : IRule
     {
+        #region IRule メンバ
+
         public IHands CreateHands()
         {
             return new RPS3Hands();
@@ -14,7 +16,9 @@ namespace RPS
 
         public IJudge CreateJudge()
         {
-            return new RPS3Judge();
+            return new ConflictJudge();
         }
+
+        #endregion
     }
 }

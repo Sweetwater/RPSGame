@@ -22,7 +22,7 @@ namespace RPS
             var selectedText = textSelector.SelectedText;
             var selectedNumber = textSelector.SelectedNumber;
 
-            var match = MatchFactory.Create(selectedText, 3);
+            var match = MatchFactory.Create(selectedText, 5);
 
             for (int i = 0; i < 10; i++)
             {

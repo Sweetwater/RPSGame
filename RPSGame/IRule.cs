@@ -8,6 +8,7 @@ namespace RPS
     interface IRule
     {
         IHands CreateHands();
+
         IJudge CreateJudge();
     }
 }

@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConflictJudge.cs" />
     <Compile Include="CPU.cs" />
     <Compile Include="Hand.cs" />
     <Compile Include="Human.cs" />
@@ -58,10 +59,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Result.cs" />
     <Compile Include="RPS15Hands.cs" />
-    <Compile Include="RPS15Judge.cs" />
     <Compile Include="RPS15Rule.cs" />
     <Compile Include="RPS3Hands.cs" />
-    <Compile Include="RPS3Judge.cs" />
     <Compile Include="RPS3Rule.cs" />
     <Compile Include="TextChooser.cs" />
   </ItemGroup>

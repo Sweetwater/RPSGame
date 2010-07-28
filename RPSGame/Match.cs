@@ -32,14 +32,13 @@ namespace RPS
 			}
             players.Add(new Human(hands));
 
-
             var choseHands = new List<Hand>();
             foreach (var player in players)
 	        {
 		        choseHands.Add(player.ChooseHand());
 	        }
 
-            var judge = rule.CreateJudge();
+            IJudge judge = rule.CreateJudge();
             var results = judge.Judge(choseHands);
 
             for (int i = 0; i < players.Count; i++)

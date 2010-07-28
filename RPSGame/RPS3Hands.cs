@@ -8,10 +8,26 @@ namespace RPS
 {
     class RPS3Hands : IHands
     {
-        private Hand[] hands = {
-                Hand.Rock,
-                Hand.Paper,
-                Hand.Scissors};
+        enum HandType
+        {
+            Rock,
+            Paper,
+            Scissors,
+            NumberOfTypes
+        };
+
+        private Hand[] hands = new Hand[(int)HandType.NumberOfTypes];
+
+        public RPS3Hands()
+        {
+            hands[(int)HandType.Rock] = new Hand(HandType.Rock.ToString());
+            hands[(int)HandType.Paper] = new Hand(HandType.Paper.ToString());
+            hands[(int)HandType.Scissors] = new Hand(HandType.Scissors.ToString());
+
+            hands[(int)HandType.Rock].WinList.Add(hands[(int)HandType.Scissors]);
+            hands[(int)HandType.Paper].WinList.Add(hands[(int)HandType.Rock]);
+            hands[(int)HandType.Scissors].WinList.Add(hands[(int)HandType.Paper]);
+        }
 
         public int HandNum {
             get { return hands.Length; }

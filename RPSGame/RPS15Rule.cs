@@ -10,6 +10,8 @@ namespace RPS
     /// 上記URLの１５ジャンケンルール
     class RPS15Rule : IRule
     {
+        #region IRule メンバ
+
         public IHands CreateHands()
         {
             return new RPS15Hands();
@@ -17,7 +19,9 @@ namespace RPS
 
         public IJudge CreateJudge()
         {
-            return new RPS15Judge();
+            return new ConflictJudge();
         }
+
+        #endregion
     }
 }
