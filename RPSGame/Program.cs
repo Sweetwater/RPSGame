@@ -3,6 +3,12 @@ using System.Collections.Generic;
 
 namespace RPS
 {
+    /// <summary>
+    /// ソース改変歴
+    /// 初期: http://gist.github.com/491967
+    /// まどがい先生後: http://gist.github.com/492045
+    /// まいんちゃん後: http://github.com/Sweetwater/RPSGame
+    /// </summary>
     class RPSGame
     {
         static void Main()

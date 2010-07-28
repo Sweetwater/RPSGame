@@ -18,7 +18,7 @@ namespace RPS
         {
             var chosser = new TextSelector()
             {
-                Caption = string.Join(",", hands),
+                Caption = string.Join(",", hands.ToList().ConvertAll(hand => hand.ToString()).ToArray()),
                 Items = hands.ToList().ConvertAll(hand=>hand.ToString())
             };
             chosser.Select();
