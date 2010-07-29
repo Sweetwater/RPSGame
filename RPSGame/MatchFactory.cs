@@ -20,6 +20,7 @@ namespace RPS
             factoryTable = new Dictionary<string, CreateRule>{
                 {"RPS 3", CreateRPS3},
                 {"RPS 15", CreateRPS15},
+				{"Majority2", CreateMajority2},
             };
         }
 
@@ -38,5 +39,9 @@ namespace RPS
         {
             return new RPS15Rule();
         }
+
+		private static Majority2Rule CreateMajority2() {
+			return new Majority2Rule();
+		}
     }
 }

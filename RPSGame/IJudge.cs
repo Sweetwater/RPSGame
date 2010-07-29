@@ -7,6 +7,6 @@ namespace RPS
 {
     interface IJudge
     {
-        IList<Result> Judge(IList<Hand> hands);
+        IList<Result> Judge(IList<IPlayer> playerList);
     }
 }

@@ -3,31 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace RPS
-{
-    class CPU : IPlayer
-    {
-        private static Random random = new Random();
+namespace RPS {
+	class CPU : IPlayer {
+		public Hand ChoosedHand { get; private set; }
 
-        private int number;
-        private IHands hands;
+		private static Random random = new Random();
 
-        public CPU(int number, IHands hands)
-        {
-            this.number = number;
-            this.hands = hands;
-        }
+		private int number;
+		private IHands hands;
 
-        public Hand ChooseHand()
-        {
-            var index = random.Next(hands.HandNum);
-            var hand = hands[index];
-            return hand;
-        }
+		public CPU(int number, IHands hands) {
+			this.number = number;
+			this.hands = hands;
+		}
 
-        public override string ToString() 
-        {
-            return "cpu" + number;
-        }
-    }
+		public void ChooseHand() {
+			var index = random.Next(hands.HandNum);
+			var hand = hands[index];
+			this.ChoosedHand = hand;
+		}
+
+		public override string ToString() {
+			return "cpu" + number.ToString();
+		}
+	}
 }

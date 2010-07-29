@@ -1,56 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Collections;
+using System.Xml.Linq;
 
-namespace RPS
-{
-    class RPS3Hands : IHands
-    {
-        enum HandType
-        {
-            Rock,
-            Paper,
-            Scissors,
-            NumberOfTypes
-        };
+namespace RPS {
+	class RPS3Hands : IHands {
+		private Hand[] hands;
+		private static XElement xml = XElement.Load(string.Format(@"..\..\Games\RPS3Hands.xml"));
 
-        private Hand[] hands = new Hand[(int)HandType.NumberOfTypes];
+		// MEMO 実験的にHandをXMLから読み込んでみるようにしました。enumとどっちがいいか決めかねています。
+		public RPS3Hands() {
+			hands = (
+				from p in xml.Elements()
+				select new Hand(p.Attribute("name").Value) {
+					WinList = p.Element("wins").Elements("hand").ToList().ConvertAll(hand => new Hand(hand.Attribute("name").Value)),
+				}).ToArray();
+		}
 
-        public RPS3Hands()
-        {
-            hands[(int)HandType.Rock] = new Hand(HandType.Rock.ToString());
-            hands[(int)HandType.Paper] = new Hand(HandType.Paper.ToString());
-            hands[(int)HandType.Scissors] = new Hand(HandType.Scissors.ToString());
+		public int HandNum {
+			get { return hands.Length; }
+		}
 
-            hands[(int)HandType.Rock].WinList.Add(hands[(int)HandType.Scissors]);
-            hands[(int)HandType.Paper].WinList.Add(hands[(int)HandType.Rock]);
-            hands[(int)HandType.Scissors].WinList.Add(hands[(int)HandType.Paper]);
-        }
+		public Hand this[int index] {
+			get { return hands[index]; }
+		}
 
-        public int HandNum {
-            get { return hands.Length; }
-        }
+		public IEnumerator<Hand> GetEnumerator() {
+			foreach (var hand in hands) {
+				yield return hand;
+			}
+		}
 
-        public Hand this[int index] {
-            get { return hands[index]; }
-        }
-
-        public IEnumerator<Hand> GetEnumerator()
-        {
-            foreach (var hand in hands)
-            {
-                yield return hand;
-            }
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            foreach (var hand in hands)
-            {
-                yield return hand;
-            }
-        }
-    }
+		IEnumerator IEnumerable.GetEnumerator() {
+			foreach (var hand in hands) {
+				yield return hand;
+			}
+		}
+	}
 }

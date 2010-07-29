@@ -3,32 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace RPS
-{
-    class Human : IPlayer
-    {
-        private IHands hands;
+namespace RPS {
+	class Human : IPlayer {
+		public Hand ChoosedHand { get; private set; }
 
-        public Human(IHands hands)
-        {
-            this.hands = hands;
-        }
-        
-        public Hand ChooseHand()
-        {
-            var chosser = new TextSelector()
-            {
-                Caption = string.Join(",", hands.ToList().ConvertAll(hand => hand.ToString()).ToArray()),
-                Items = hands.ToList().ConvertAll(hand=>hand.ToString())
-            };
-            chosser.Select();
-            var number = chosser.SelectedNumber;
-            return hands[number];
-        }
+		private IHands hands;
 
-        public override string ToString()
-        {
-            return "player";
-        }
-    }
+		public Human(IHands hands) {
+			this.hands = hands;
+		}
+
+		public void ChooseHand() {
+			var textSelector = new TextSelector() {
+				Caption = string.Join(",", hands.ToList().ConvertAll(hand => hand.ToString()).ToArray()),
+				Items = hands.ToList().ConvertAll(hand => hand.ToString())
+			};
+			var result = textSelector.DoSelect();
+			var number = result.Number;
+			this.ChoosedHand = hands[number];
+		}
+
+		public override string ToString() {
+			return "player";
+		}
+	}
 }

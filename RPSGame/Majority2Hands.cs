@@ -1,44 +1,23 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using RPS.Utils;
 
 namespace RPS {
-	class RPS15Hands : IHands {
+	class Majority2Hands : IHands {
 		enum HandType {
-			Gun,
 			Rock,
-			Fire,
-			Scissors,
-			Snake,
-			Human,
-			Tree,
-			Wolf,
-			Sponge,
 			Paper,
-			Air,
-			Water,
-			Dragon,
-			Devil,
-			Lightning,
-		};
+		}
 
 		private Hand[] hands;
 
-		public RPS15Hands() {
+		public Majority2Hands() {
 			var handTypeType = typeof(HandType);
 			var handTypeNames = Enum.GetNames(handTypeType);
 			hands = handTypeNames.Map(name => new Hand(name));
-
-			var itemCount = Enum.GetValues(handTypeType).Length;
-			for (int i = 0; i < itemCount; i++) {
-				int numberOfWin = itemCount / 2;
-				int index = (i + 1) % itemCount;
-				for (int j = 0; j < numberOfWin; ++j) {
-					hands[i].WinList.Add(hands[index]);
-					index = (index + 1) % itemCount;
-				}
-			}
 		}
 
 		public int HandNum {

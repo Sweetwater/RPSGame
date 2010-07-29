@@ -1,9 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual C# Express 2008
+# Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPSGame", "RPSGame\RPSGame.csproj", "{7E4CB963-38E3-4E5A-AA0D-DDFB5B418F39}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E89785D7-615B-4FB7-8C8E-BC3E8A9F1FE8}"
+	ProjectSection(SolutionItems) = preProject
+		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
+		RPSGame.vsmdi = RPSGame.vsmdi
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPSGameTest", "RPSGameTest\RPSGameTest.csproj", "{038DE00C-9B3F-43B5-8E89-B8A5E8B31038}"
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = RPSGame.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -13,6 +24,10 @@ Global
 		{7E4CB963-38E3-4E5A-AA0D-DDFB5B418F39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E4CB963-38E3-4E5A-AA0D-DDFB5B418F39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E4CB963-38E3-4E5A-AA0D-DDFB5B418F39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{038DE00C-9B3F-43B5-8E89-B8A5E8B31038}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{038DE00C-9B3F-43B5-8E89-B8A5E8B31038}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{038DE00C-9B3F-43B5-8E89-B8A5E8B31038}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{038DE00C-9B3F-43B5-8E89-B8A5E8B31038}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

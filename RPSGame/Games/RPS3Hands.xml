@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hands>
+	<hand name="Rock">
+		<wins>
+			<hand name="Scissors" />
+		</wins>
+	</hand>
+	<hand name="Paper">
+		<wins>
+			<hand name="Rock" />
+		</wins>
+	</hand>
+	<hand name="Scissors">
+		<wins>
+			<hand name="Paper" />
+		</wins>
+	</hand>
+</hands>
